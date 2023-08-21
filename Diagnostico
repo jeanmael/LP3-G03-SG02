@@ -1,0 +1,24 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package javaapplication1;
+
+/**
+ *
+ * @author Alumno
+ */
+public class Diagnostico {
+    public void aptoVacunaA(Perro P1){
+        double tmp = P1.getTemp();
+        int edad = P1.getEdad();
+        double peso = P1.peso;
+        
+        
+        if (tmp >=35 && tmp<=40 && peso>5 && edad >1)
+            System.out.println("Perro sano");
+        else
+            System.out.println("Perro enfermo");
+    }
+    
+}
