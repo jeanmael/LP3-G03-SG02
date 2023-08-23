@@ -9,23 +9,15 @@ package javaapplication1;
  * @author Alumno
  */
 public class Perro {
- private String raza;
- private String color;
- private double temp;
- private int edad;
- public double peso;
+    private String raza;
+    private String color;
+    private double temp;
+    private int edad;
+    public double peso;
 
-    public Perro(String raza, String color, double temp, int edad, double peso) {
+    public Perro(String raza, String color) {
         this.raza = raza;
         this.color = color;
-        this.temp = temp;
-        this.edad = edad;
-        this.peso = peso;
-    }
-
-    public Perro() {
-        this.raza = "chusco";
-        this.color = "gris";
         this.temp = 37;
         this.edad = 1;
         this.peso = 0.5;
@@ -62,12 +54,18 @@ public class Perro {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+    public double getPeso() {
+        return peso;
+    }
 
-    @Override
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+    
+        @Override
     public String toString() {
         return "Perro{" + "raza=" + raza + ", color=" + color + ", temp=" + temp + ", edad=" + edad + ", peso=" + peso + '}';
     }
-
 
      public void ladrar(){
         System.out.println("Guau Guau");
@@ -80,13 +78,13 @@ public class Perro {
     
     }
     
-    public void increEdad(int anios){
+    public void increEdad(int anios) {
         this.edad = this.edad + anios;
         cambiarPeso(anios);
     }
-    
-    private void cambiarPeso(int anios){
-        this.peso = this.peso + (anios * 10);
-    }
 
+    private void cambiarPeso(int anios) {
+        this.peso = this.peso + (anios * 1.5);
+    }
 }
+
