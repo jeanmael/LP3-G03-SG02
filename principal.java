@@ -40,6 +40,6 @@ public class Principal {
         pelusa.setTemp(nuevaTempPelusa);
 
         System.out.println("DIAGNÓSTICO Fido: " + (Diagnostico.aptoVacunaA(fido) ? "Está SANO" : "Está ENFERMO"));
-        System.out.println("DIAGNÓSTICO Pelusa: " + (Diagnostico.aptoVacunaA(pelusa) ? "Está SANO" : "Está ENFERMO"));
+        System.out.println("DIAGNÓSTICO Pelusa: " + (Diagnostico.aptoVacunaB(pelusa.getTemp(),pelusa.getPeso(), pelusa.getEdad()) ? "Está SANO" : "Está ENFERMO"));
     }
 }
