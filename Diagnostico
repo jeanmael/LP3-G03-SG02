@@ -9,16 +9,11 @@ package javaapplication1;
  * @author Alumno
  */
 public class Diagnostico {
-    public void aptoVacunaA(Perro P1){
-        double tmp = P1.getTemp();
-        int edad = P1.getEdad();
-        double peso = P1.peso;
-        
-        
-        if (tmp >=35 && tmp<=40 && peso>5 && edad >1)
-            System.out.println("Perro sano");
-        else
-            System.out.println("Perro enfermo");
+    public static boolean aptoVacunaA(Perro perro) {
+        return perro.getTemp() >= 37 && perro.getTemp() <= 40 && perro.getPeso() > 5 && perro.getEdad() > 1;
     }
-    
+
+    public static boolean aptoVacunaB(Perro perro) {
+        return perro.getTemp() < 37 || perro.getTemp() > 40 || perro.getPeso() <= 5 || perro.getEdad() <= 1;
+    }
 }
