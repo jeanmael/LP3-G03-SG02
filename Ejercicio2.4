@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Fecha {
+    private int dia;
+    private int mes;
+    private int anio;
+
+    public Fecha() {
+        this.dia = 1;
+        this.mes = 1;
+        this.anio = 1900;
+    }
+
+    public Fecha(int dia, int mes, int anio) {
+        this.dia = dia;
+        this.mes = mes;
+        this.anio = anio;
+    }
+
+    public void leer() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el día (1 a 31):");
+        this.dia = scanner.nextInt();
+
+        System.out.println("Ingrese el mes (1 a 12):");
+        this.mes = scanner.nextInt();
+
+        System.out.println("Ingrese el año (1900 a 2050):");
+        this.anio = scanner.nextInt();
+
+        scanner.close();
+    }
+
+    public boolean bisiesto() {
+        return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
+    }
+
+    // Resto de los métodos...
+
+    public static void main(String[] args) {
+        Fecha fechaPredeterminada = new Fecha(); 
+        fechaPredeterminada.imprimirFecha();
+
+        Fecha fechaPersonalizada = new Fecha();
+        fechaPersonalizada.leer();
+        fechaPersonalizada.imprimirFecha();
+
+        if (fechaPersonalizada.bisiesto()) {
+            System.out.println("El año es bisiesto.");
+        } else {
+            System.out.println("El año no es bisiesto.");
+        }
+    }
+}
