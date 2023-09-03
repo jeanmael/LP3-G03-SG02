@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+public class Fecha {
+
+    public static boolean mayorQue(Fecha fecha1, Fecha fecha2) {
+        if (fecha1.getAnio() > fecha2.getAnio()) {
+            return true;
+        } else if (fecha1.getAnio() == fecha2.getAnio()) {
+            if (fecha1.getMes() > fecha2.getMes()) {
+                return true;
+            } else if (fecha1.getMes() == fecha2.getMes()) {
+                return fecha1.getDia() > fecha2.getDia();
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Fecha fechaPredeterminada = new Fecha(); 
+        fechaPredeterminada.imprimirFecha();
+
+        Fecha fechaPersonalizada = new Fecha();
+        fechaPersonalizada.leer();
+        fechaPersonalizada.imprimirFecha();
+
+        if (fechaPersonalizada.bisiesto()) {
+            System.out.println("El año es bisiesto.");
+        } else {
+            System.out.println("El año no es bisiesto.");
+        }
+
+        int mesConsultado = 5;
+        int diasEnMes = fechaPersonalizada.diasMes(mesConsultado);
+        System.out.println("Número de días en el mes " + mesConsultado + ": " + diasEnMes);
+
+        System.out.println("Día: " + fechaPersonalizada.getDia());
+        System.out.println("Mes: " + fechaPersonalizada.getMes());
+        System.out.println("Año: " + fechaPersonalizada.getAnio());
+
+        fechaPersonalizada.setDia(15);
+        fechaPersonalizada.setMes(8);
+        fechaPersonalizada.setAnio(2000);
+
+        System.out.println("Fecha modificada:");
+        fechaPersonalizada.imprimirFecha();
+
+        System.out.println("Fecha en formato corto:");
+        fechaPersonalizada.corta();
+
+        int diasTranscurridos = fechaPersonalizada.diasTranscurridos();
+        System.out.println("Días transcurridos desde 1-1-1900 hasta la fecha: " + diasTranscurridos);
+
+        int diaDeSemana = fechaPersonalizada.diaSemana();
+        System.out.println("Día de la semana (0 para domingo, ..., 6 para sábado): " + diaDeSemana);
+
+        System.out.println("Fecha en formato largo:");
+        fechaPersonalizada.larga();
+
+        long diasTras = 15000; 
+        fechaPersonalizada.fechaTras(diasTras);
+        System.out.println("Fecha tras " + diasTras + " días:");
+        fechaPersonalizada.imprimirFecha();
+
+        Fecha otraFecha = new Fecha(15, 12, 2000);
+        long diasEntreFechas = fechaPersonalizada.diasEntre(otraFecha);
+        System.out.println("Días entre las fechas: " + diasEntreFechas);
+
+        System.out.println("Fecha antes de pasar al día anterior:");
+        fechaPersonalizada.imprimirFecha();
+        fechaPersonalizada.anterior();
+        System.out.println("Fecha después de pasar al día anterior:");
+        fechaPersonalizada.imprimirFecha();
+
+        long diasFuturos = 100; 
+        fechaPersonalizada.fechaFutura(diasFuturos);
+        System.out.println("Fecha después de " + diasFuturos + " días en el futuro:");
+        fechaPersonalizada.imprimirFecha();
+
+        Fecha copiaDeFechaPersonalizada = fechaPersonalizada.copia();
+        System.out.println("Copia de la fecha personalizada:");
+        copiaDeFechaPersonalizada.imprimirFecha();
+
+        if (mayorQue(fechaPersonalizada, otraFecha)) {
+            System.out.println("La fecha personalizada es posterior a la otra fecha.");
+        } else {
+            System.out.println("La fecha personalizada no es posterior a la otra fecha.");
+        }
+    }
+}
