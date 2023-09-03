@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Fecha {
+    private int dia;
+    private int mes;
+    private int anio;
+
+    // Constructor predeterminado con la fecha por defecto "1-1-1900"
+    public Fecha() {
+        this.dia = 1;
+        this.mes = 1;
+        this.anio = 1900;
+    }
+
+    // Constructor parametrizado con día, mes y año
+    public Fecha(int dia, int mes, int anio) {
+        this.dia = dia;
+        this.mes = mes;
+        this.anio = anio;
+    }
+
+    // Resto de los métodos...
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el día:");
+        int dia = scanner.nextInt();
+
+        System.out.println("Ingrese el mes:");
+        int mes = scanner.nextInt();
+
+        System.out.println("Ingrese el año:");
+        int anio = scanner.nextInt();
+
+        Fecha fecha = new Fecha(dia, mes, anio);
+        fecha.imprimirFecha();
+
+        Fecha fechaPredeterminada = new Fecha(); // Constructor predeterminado
+        fechaPredeterminada.imprimirFecha();
+
+        scanner.close();
+    }
+}
