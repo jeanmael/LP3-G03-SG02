@@ -15,7 +15,7 @@ public class MatrizCuadrada {
         Scanner sn = new Scanner(System.in);
         int matriz[][] = new int[4][4];
         boolean salir = false;
-        int opcion, fila, columna;
+        int opcion;
         boolean rellenado = false;
 
         do {
@@ -32,52 +32,56 @@ public class MatrizCuadrada {
 
             switch (opcion) {
                 case 1:
-                    rellenarMatriz(sn, matriz);
-                    rellenado = true;
+                    if (!rellenado) {
+                        rellenarMatriz(sn, matriz);
+                        rellenado = true;
+                    }
                     break;
                 case 2:
                     if (rellenado) {
-                        do {
-                            System.out.print("Elige una fila: ");
-                            fila = sn.nextInt();
-                        } while (!(fila >= 0 && fila < matriz.length));
-                        System.out.println("La suma de los valores de la fila " + fila
-                                + " es: " + sumaFila(matriz, fila));
+                        System.out.print("Elige una fila (0-3): ");
+                        int fila = sn.nextInt();
+                        if (fila >= 0 && fila < matriz.length) {
+                            System.out.println("La suma de los valores de la fila " + fila + " es: " + sumaFila(matriz, fila));
+                        } else {
+                            System.out.println("Debe estar entre 0 y 3.");
+                        }
                     } else {
-                        System.out.println("Debes rellenar la matriz primero");
+                        System.out.println("Debes rellenar la matriz primero.");
                     }
                     break;
                 case 3:
                     if (rellenado) {
-                        do {
-                            System.out.print("Elige una columna: ");
-                            columna = sn.nextInt();
-                        } while (!(columna >= 0 && columna < matriz[0].length));
-                        System.out.println("La suma de los valores de la columna " + columna
-                                + " es: " + sumaColumna(matriz, columna));
+                        System.out.print("Elige una columna (0-3): ");
+                        int columna = sn.nextInt();
+                        if (columna >= 0 && columna < matriz[0].length) {
+                            System.out.println("La suma de los valores de la columna " + columna + " es: " + sumaColumna(matriz, columna));
+                        } else {
+                            System.out.println("Debe estar entre 0 y 3.");
+                        }
                     } else {
-                        System.out.println("Debes rellenar la matriz primero");
+                        System.out.println("Debes rellenar la matriz primero.");
                     }
                     break;
                 case 4:
                     if (rellenado) {
                         System.out.println("La suma de la diagonal principal es: " + sumaDiagonalPrincipal(matriz));
                     } else {
-                        System.out.println("Debes rellenar la matriz primero");
+                        System.out.println("Debes rellenar la matriz primero.");
                     }
                     break;
                 case 5:
                     if (rellenado) {
                         System.out.println("La suma de la diagonal inversa es: " + sumaDiagonalInversa(matriz));
                     } else {
-                        System.out.println("Debes rellenar la matriz primero");
+                        System.out.println("Debes rellenar la matriz primero.");
                     }
                     break;
                 case 6:
                     if (rellenado) {
                         System.out.println("La media de los valores de la matriz es: " + calcularMedia(matriz));
                     } else {
-                        System.out.println("Debes rellenar la matriz primero");
+                        System.out.println("Debes rellenar la matriz primero.");
                     }
                     break;
                 case 7:
@@ -102,7 +106,7 @@ public class MatrizCuadrada {
 
     public static int sumaFila(int[][] matriz, int fila) {
         int suma = 0;
-        for (int j = 0; j < matriz.length; j++) {
+        for (int j = 0; j < matriz[0].length; j++) {
             suma += matriz[fila][j];
         }
         return suma;
