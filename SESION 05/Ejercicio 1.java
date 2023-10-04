@@ -1,4 +1,4 @@
-(CODIGO de las tres clases)
+//CODIGO de las tres clases
 public class Persona {
     private int id;
     private String nombre;
@@ -72,7 +72,7 @@ public class Cuenta {
 
     public Cuenta(int numero, double saldo, char tipoCliente) {
         this.numero = numero;
-        this.saldo = Math.max(saldo, 50); // Garantizar saldo mínimo de 50 soles
+        this.saldo = Math.max(saldo, 50); 
         this.tipoCliente = tipoCliente;
     }
 
@@ -126,37 +126,31 @@ public class Cuenta {
 
 public class TestComposicion {
     public static void main(String[] args) {
-        // Crear objetos de Persona
+
         Persona persona1 = new Persona(1, "Jeik", "Slot", 'C');
         Persona persona2 = new Persona(2, "Alf", "Garr", 'B');
 
-        // Realizar operaciones de depósito y retiro en las cuentas
         persona1.getCuenta().depositar(100);
         persona1.getCuenta().retirar(30);
 
         persona2.getCuenta().depositar(500);
         persona2.getCuenta().retirar(200);
 
-        // Mostrar la información de las personas y sus cuentas antes y después de las operaciones
         System.out.println("Informacion de Persona 1 antes de las operaciones:");
         System.out.println(persona1.toString());
 
         System.out.println("\nInformacion de Persona 2 antes de las operaciones:");
         System.out.println(persona2.toString());
 
-        // Realizar más operaciones para demostrar restricciones de saldo mínimo
-        persona1.getCuenta().retirar(80); // Intentar retirar más dinero del saldo actual
+        persona1.getCuenta().retirar(80); 
 
-        // Cambiar el tipo de cliente y mostrar la nueva información
         persona2.setTipoCliente('E');
 
         System.out.println("\nInformacion de Persona 2 después de cambiar el tipo de cliente:");
         System.out.println(persona2.toString());
 
-        // Intentar realizar una operación de retiro inválida
-        persona2.getCuenta().retirar(1000); // Intentar retirar más dinero del saldo actual
+        persona2.getCuenta().retirar(1000); 
 
-        // Mostrar la información de las personas y sus cuentas después de las operaciones
         System.out.println("\nInformacion de Persona 1 despues de las operaciones:");
         System.out.println(persona1.toString());
 
