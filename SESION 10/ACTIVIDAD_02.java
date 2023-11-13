@@ -38,10 +38,10 @@ public class Main {
                 new Persona("Ringo")
         );
 
-        System.out.println("Mínimo Integer: " + minInt);
-        System.out.println("Mínimo Double: " + minDouble);
-        System.out.println("Mínimo String: " + minString);
-        System.out.println("Mínimo Persona: " + minPersona);
+        System.out.println("Minimo Integer: " + minInt);
+        System.out.println("Minimo Double: " + minDouble);
+        System.out.println("Minimo String: " + minString);
+        System.out.println("Minimo Persona: " + minPersona);
     }
 
     public static <T extends Comparable<T>> T minimo(T a, T b, T c, T d) {
