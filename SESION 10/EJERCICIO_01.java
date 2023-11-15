@@ -5,7 +5,6 @@ public class App {
         imprimirArray(stringArray);
     }
 
-    // Sobrecarga 
     public static void imprimirArray(String[] stringArray) {
         int columnas = 4;
         for (int i = 0; i < stringArray.length; i++) {
