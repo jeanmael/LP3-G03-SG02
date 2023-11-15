@@ -9,21 +9,21 @@ public class Copy {
         String[] arrayStrings2 = {"dos", "tres", "cuatro"};
 
         Producto[] arrayProductos1 = {
-                new Producto("P001", "Laptop", 1200.0),
-                new Producto("P002", "Teléfono", 500.0),
+                new Producto("P1", "Laptop", 1200.0),
+                new Producto("P2", "Teléfono", 500.0),
         };
         Producto[] arrayProductos2 = {
-                new Producto("P002", "Teléfono", 500.0),
-                new Producto("P003", "Tablet", 300.0),
+                new Producto("P2", "Teléfono", 500.0),
+                new Producto("P3", "Tablet", 300.0),
         };
 
         Persona[] arrayPersonas1 = {
-                new Persona("123", "Juan", "Calle A"),
-                new Persona("456", "María", "Calle B")
+                new Persona("12", "Juan", "A"),
+                new Persona("34", "María", "B")
         };
         Persona[] arrayPersonas2 = {
-                new Persona("456", "María", "Calle B"),
-                new Persona("789", "Carlos", "Calle C")
+                new Persona("34", "María", "B"),
+                new Persona("56", "Carlos", "C")
         };
 
         System.out.println("Strings: " + Arrays.toString(copyArray(arrayStrings1, arrayStrings2)));
@@ -33,8 +33,14 @@ public class Copy {
 
     public static <T> T[] copyArray(T[] array1, T[] array2) {
         List<T> resultadoList = new ArrayList<>(Arrays.asList(array1));
-        resultadoList.addAll(Arrays.asList(array2));
-        return resultadoList.toArray(Arrays.copyOf(array1, 0));
+
+        for (T element : array2) {
+            if (!resultadoList.contains(element)) {
+                resultadoList.add(element);
+            }
+        }
+
+        return resultadoList.toArray(Arrays.copyOf(array1, resultadoList.size()));
     }
 }
 
@@ -52,7 +58,6 @@ class Producto {
     @Override
     public String toString() {
         return"Producto{" + "codigo='" + codigo + "', descripcion='" + descripcion + "', precio=" + precio + '}';
-
     }
 }
 
