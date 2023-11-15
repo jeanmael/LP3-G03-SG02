@@ -112,20 +112,49 @@ public class Estudiante extends Persona {
     }
 }
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Producto producto = new Producto("P001", "Laptop", 2200.0);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese los datos del Producto:");
+        System.out.print("Codigo: ");
+        String codigoProducto = scanner.nextLine();
+        System.out.print("Descripcion: ");
+        String descripcionProducto = scanner.nextLine();
+        System.out.print("Precio: ");
+        double precioProducto = scanner.nextDouble();
+        scanner.nextLine(); 
+
+        Producto producto = new Producto(codigoProducto, descripcionProducto, precioProducto);
         System.out.println("Producto: " + producto);
 
-        Persona persona = new Persona("74787985", "Jhon Lennon", "Yanahuara");
+        System.out.println("\nIngrese los datos de la Persona:");
+        System.out.print("DNI: ");
+        String dniPersona = scanner.nextLine();
+        System.out.print("Nombres: ");
+        String nombresPersona = scanner.nextLine();
+        System.out.print("Direccion: ");
+        String direccionPersona = scanner.nextLine();
+
+        Persona persona = new Persona(dniPersona, nombresPersona, direccionPersona);
         System.out.println("Persona: " + persona);
 
-        Estudiante estudiante = new Estudiante("76548963", "Gerge Harrison", "Cayma", "Ing.de Sistemas");
+        System.out.println("\nIngrese los datos del Estudiante:");
+        System.out.print("Carrera: ");
+        String carreraEstudiante = scanner.nextLine();
+
+        Estudiante estudiante = new Estudiante(dniPersona, nombresPersona, direccionPersona, carreraEstudiante);
         System.out.println("Estudiante: " + estudiante);
 
-        System.out.println("Carrera del estudiante: " + estudiante.getCarrera());
+        System.out.println("\nCarrera del estudiante: " + estudiante.getCarrera());
 
-        persona.setNombres("Jhon Lennon");
+        System.out.println("\nModifique el nombre de la persona:");
+        System.out.print("Nuevo nombre: ");
+        String nuevoNombrePersona = scanner.nextLine();
+        persona.setNombres(nuevoNombrePersona);
         System.out.println("Persona modificada: " + persona);
     }
 }
+
