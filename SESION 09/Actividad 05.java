@@ -1,3 +1,6 @@
+//class Agenda
+//class Agenda
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -62,5 +65,65 @@ public class Agenda {
             System.exit(1);
         }
         return directorio;
+    }
+}
+
+
+//class ArrayPersona
+//class ArrayPersona
+public class ArrayPersona {
+    public Persona[] arreglo;
+    final int max = 128;
+    int tamano = 0;
+
+    public ArrayPersona() {
+        this.arreglo = new Persona[this.max];
+    }
+    public void printArray(String nombre) {
+        for (int i = 0; i < this.tamano; i++) {
+            if (this.arreglo[i].getNombre().equals(nombre))
+                System.out.println(this.arreglo[i]);
+        }
+    }
+    public void addArray (Persona persona) {
+        if (this.tamano == max)
+            System.exit(1);
+        this.arreglo [this.tamano++] = persona;
+    }
+}
+
+
+
+//class Persona
+//class Persona
+public class Persona{
+    protected String nombre;
+    protected String telefono;
+    protected String direccion;
+    protected int edad;
+    public Persona (String nombre, String telefono, String direccion) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    @Override
+    public String toString() {
+        return this.nombre + "\t" + this.telefono.replace("\r","") + "\t" + this.direccion.replace("\r","") + "\n";
+    }
+}
+
+
+
+//class AppContactos
+//class AppContactos
+public class AppContactos {
+    public static void main(String[] args){
+        Agenda agenda = new Agenda();
+        agenda.bucle();
+        int a = 0;
+        String c = String.valueOf(a);
     }
 }
